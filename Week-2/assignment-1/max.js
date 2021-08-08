@@ -1,20 +1,16 @@
-// function max(numbers) {
-//   // your code here, for-loop method preferred
-//   max_number = numbers[0];
-//   var i;
-//   for (i = 0; i < numbers.length; i++) {
-//     if (numbers[i] >= max_number) {
-//       max_number = numbers[i];
-//     }
-//   }
-//   return max_number;
-// }
-// console.log(max([1, 2, 4, 5])); // should print 5
-// console.log(max([5, 2, 7, 1, 6])); // should print 7
-
-// console.log(
-//   "-------------------------------------------------------------------------------------------------"
-// );
+function max(numbers) {
+  // your code here, for-loop method preferred
+  max_number = numbers[0];
+  var i;
+  for (i = 0; i < numbers.length; i++) {
+    if (numbers[i] >= max_number) {
+      max_number = numbers[i];
+    }
+  }
+  return max_number;
+}
+console.log(max([1, 2, 4, 5])); // should print 5
+console.log(max([5, 2, 7, 1, 6])); // should print 7
 
 function findPosition(numbers, target) {
   // your code here, for-loop method preferred
