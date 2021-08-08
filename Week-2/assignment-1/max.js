@@ -1,5 +1,4 @@
 function max(numbers) {
-  // your code here, for-loop method preferred
   max_number = numbers[0];
   var i;
   for (i = 0; i < numbers.length; i++) {
