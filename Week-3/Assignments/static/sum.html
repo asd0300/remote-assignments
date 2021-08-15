@@ -14,19 +14,19 @@
       const text= document.getElementsByClassName("text");
       function loadDoc(){
         var xhr = new XMLHttpRequest();
-        // xhr.onreadystatechange = function() {
-        //    if (xhr.readyState == 4 && xhr.status == 200) {
-        //       enterButton.addEventListener("click", () => {
-        //         let calValue = inputContent.value;
-        //         let sum =0
-        //         for (let i =0; i< calValue+1 ;i++){
-        //           sum+=item
-        //         }
-        //       text.innerHTML = sum ;
-        //       inputContent.value = '';                                  
-        //       });
-        //     }
-        // };      
+        xhr.onreadystatechange = function() {
+           if (xhr.readyState == 4 && xhr.status == 200) {
+              enterButton.addEventListener("click", () => {
+                let calValue = inputContent.value;
+                let sum =0
+                for (let i =0; i< calValue+1 ;i++){
+                  sum+=item
+                }
+              text.innerHTML = sum ;
+              inputContent.value = '';                                  
+              });
+            }
+        };      
         xhr.onreadystatechange = function() {
            if (xhr.readyState == 4 && xhr.status == 200) {
                 let calValue = inputContent.value;
