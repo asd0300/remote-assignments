@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>456</title>
+  </head>
+  <body>
+    <h1 class="text">The XMLHttpRequest Object-please enter number</h1>
+    <input type="text" class="input"></input>
+    <!-- <button type="button" class="calculate" onclick="loadDoc()">Calculate</button> -->
+    <button type="button" class="calculate" onclick="loadDoc()">Calculate</button>
+    <script>
+      const inputContent= document.getElementsByClassName("input");
+      const enterButton= document.getElementsByClassName("calculate");
+      const text= document.getElementsByClassName("text");
+      function loadDoc(){
+        var xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function() {
+        //    if (xhr.readyState == 4 && xhr.status == 200) {
+        //       enterButton.addEventListener("click", () => {
+        //         let calValue = inputContent.value;
+        //         let sum =0
+        //         for (let i =0; i< calValue+1 ;i++){
+        //           sum+=item
+        //         }
+        //       text.innerHTML = sum ;
+        //       inputContent.value = '';                                  
+        //       });
+        //     }
+        // };      
+        xhr.onreadystatechange = function() {
+           if (xhr.readyState == 4 && xhr.status == 200) {
+                let calValue = inputContent.value;
+                
+              text.innerHTML = this.inputContent;
+                                       
+            }
+        };   
+        xhr.open("GET", "data?number=5", true);
+        xhr.send();
+      }
+    </script>
+  </body>
+</html>
