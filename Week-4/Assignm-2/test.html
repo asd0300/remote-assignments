@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>test</title>
+    <script type="text/javascript">
+      function ajax(src, callback) {
+        console.log(src);
+        data = 2 + 2;
+        callback(data);
+      }
+      function render(add) {
+        console.log("test ok!@!@!");
+        add2 = add + 2;
+        console.log(add2);
+      } // document.createElement() and appendChild() methods are preferred.
+
+      ajax(
+        "http://13.230.176.178:4000/api/1.0/remote-w4-data",
+        function (response) {
+          render(response);
+        }
+      );
+    </script></head
+  ><!--如果希望一進頁面就有內容,當網頁仔入立刻做getData()-->
+  <body>
+    <div>
+      <span onclick="ajax">熱門</span>
+      <span>最新</span>
+    </div>
+    <hr />
+    <div id="content1"></div>
+  </body>
+</html>

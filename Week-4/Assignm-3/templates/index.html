@@ -6,8 +6,17 @@
   Password<input type="password" name="password" />
   <br />
   <br />
+  <input type="submit" name="action" value="register" />
+</form>
+<br />
+<form method="POST" action="{{url_for('login')}}">
+  Email<input type="email" name="email" />
+  <br />
+  <br />
+  Password<input type="password" name="password" />
+  <br />
+  <br />
   <input type="submit" name="action" value="SignIn" />
-  <input type="submit" name="action" value="Register" />
 </form>
 
 <p>{{error}}</p>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Assignment2</title>
+    <script type="text/javascript">
+      function ajax(src, callback) {
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function () {
+          if (xhr.readyState == 4 && xhr.status == 200) {
+            var generated = JSON.parse(xhr.response);
+            callback(generated);
+          }
+        };
+        xhr.open("GET", src);
+        xhr.send();
+      }
+      function render(data) {
+        for (var i = 0; i < data.length; i++) {
+          var name = data[i].name;
+          var price = data[i].price;
+          var description = data[i].description;
+          var newDiv = document.createElement("div");
+          newDiv.className = "newDiv";
+          newDiv.innerHTML =
+            "<div>" +
+            name +
+            "</div>" +
+            "<div>" +
+            price +
+            "</div>" +
+            "<div>" +
+            description +
+            "</div>";
+          document.getElementById("content1").appendChild(newDiv);
+        }
+      } // document.createElement() and appendChild() methods are preferred.
+
+      ajax(
+        "http://13.230.176.178:4000/api/1.0/remote-w4-data",
+        function (response) {
+          render(response);
+        }
+      );
+    </script></head
+  ><!--如果希望一進頁面就有內容,當網頁仔入立刻做getData()-->
+  <body>
+    <div>
+      <span></span>
+      <span></span>
+    </div>
+    <hr />
+    <div id="content1"></div>
+  </body>
+</html>

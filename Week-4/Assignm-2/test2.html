@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Ajax 標籤選單</title>
+    <script type="text/javascript">
+      var xhr = new XMLHttpRequest();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var generated = JSON.parse(xhr.response);
+          console.log(generated);
+          for (var i = 0; i < generated.length; i++) {
+            var name = generated[i].name;
+            var price = generated[i].price;
+            var description = generated[i].description;
+            var newDiv = document.createElement("div");
+            newDiv.className = "newDiv";
+            newDiv.innerHTML =
+              "<div>" +
+              name +
+              "</div>" +
+              "<div>" +
+              price +
+              "</div>" +
+              "<div>" +
+              description +
+              "</div>";
+            document.getElementById("content1").appendChild(newDiv);
+          }
+          // document.getElementById("content1").innerHTML = generated;
+        }
+      };
+      xhr.open("GET", "http://13.230.176.178:4000/api/1.0/remote-w4-data");
+      xhr.send();
+    </script></head
+  ><!--如果希望一進頁面就有內容,當網頁仔入立刻做getData()-->
+  <body>
+    <div>
+      <span onclick="getData();">click</span>
+    </div>
+    <hr />
+    <div id="content1"></div>
+    <div id="content2"></div>
+  </body>
+</html>

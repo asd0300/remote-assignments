@@ -32,13 +32,13 @@ def register():
             error = None
             if data:
                 error = "A person with this email already exists, please try another email name"
-                return render_template('member.html', wlcome=error)
+                return render_template('index.html', error=error)
             else:
                 sql = "INSERT INTO `user` (`email`, `password`) VALUES (%s, %s)"
                 cursor.execute(sql, (email, password))
                 connection.commit()
                 error = "Register Success!"
-                return render_template('member.html', wlcome=error)
+                return render_template('index.html', error=error)
     return render_template('index.html')
 
 @app.route('/login', methods =['GET', 'POST'])
@@ -54,15 +54,13 @@ def login():
             result = cursor.fetchone()
             if result:
                 error = "Check ok, account login"
-                return render_template('member.html', wlcome=error)
+                return render_template('index.html', error=error)
             else:
                 error = "!! something wrong,Please double confirm email/password"
-                return render_template('member.html', wlcome=error)
+                return render_template('index.html', error=error)
     error = ""
     return render_template('index.html', error=error)
   
 
 if __name__ == '__main__':
     app.run(debug = True,host='localhost', port=3000)
-
-
