@@ -12,7 +12,7 @@ redis.client = redis.StrictRedis(host='localhost', port=6379, db=0, charset="utf
 
 
 
-TODAY = datetime.datetime.today().strftime('%Y-%m-%d')
+# TODAY = datetime.datetime.today().strftime('%Y-%m-%d')
 
 # sever var
 # DEBUG = config.DEBUG
@@ -46,16 +46,16 @@ TODAY = datetime.datetime.today().strftime('%Y-%m-%d')
 # app.config['JSON_AS_ASCII'] = False
 # app.config['JSON_SORT_KEYS'] = False
 
-userBearer=[]
+# userBearer=[]
 
-def validate_image(stream):
-    """validate_image"""
-    header = stream.read(512)
-    stream.seek(0)
-    formatData = imghdr.what(None, header)
-    if not formatData:
-        return None
-    return '.' + (formatData if formatData != 'jpeg' else 'jpg')
+# def validate_image(stream):
+#     """validate_image"""
+#     header = stream.read(512)
+#     stream.seek(0)
+#     formatData = imghdr.what(None, header)
+#     if not formatData:
+#         return None
+#     return '.' + (formatData if formatData != 'jpeg' else 'jpg')
 
 
 
